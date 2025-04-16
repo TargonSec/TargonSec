@@ -3,51 +3,142 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TargonSec | Servicios de Pentesting & Red Teaming</title>
+  <title>TargonSec | Cybersecurity Experts - Pentesting & Red Teaming</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/jpg" href="TargonSecLogo.jpg">
 </head>
 <body class="bg-gray-900 text-white font-sans">
+  <!-- Navbar -->
+  <nav class="fixed w-full bg-gray-900/80 backdrop-blur-sm z-50 py-4 border-b border-gray-700">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <img src="TargonSecLogo.jpg" alt="TargonSec Logo" class="h-12">
+      <div class="hidden md:flex space-x-8">
+        <a href="#servicios" class="hover:text-red-500 transition">Servicios</a>
+        <a href="#nosotros" class="hover:text-red-500 transition">Nosotros</a>
+        <a href="#contacto" class="hover:text-red-500 transition">Contacto</a>
+      </div>
+    </div>
+  </nav>
+
   <!-- Hero -->
-  <section class="min-h-screen flex items-center justify-center flex-col text-center px-4">
-    <h1 class="text-4xl md:text-6xl font-bold mb-4">TargonSec</h1>
-    <p class="text-lg md:text-xl mb-6 max-w-2xl">Ofrecemos servicios profesionales de Pentesting y Red Teaming. Detectamos vulnerabilidades antes de que lo hagan los atacantes, con un enfoque técnico, realista y adaptado a cada organización.</p>
-    <a href="#contacto" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-xl transition">Contáctanos</a>
+  <section class="min-h-screen flex items-center justify-center flex-col text-center px-4 pt-20">
+    <div class="mb-8">
+      <img src="TargonSecLogo.jpg" alt="TargonSec Logo" class="mx-auto w-48 mb-8 rounded-xl shadow-2xl">
+    </div>
+    <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">
+      Cybersecurity Experts
+    </h1>
+    <p class="text-xl md:text-2xl mb-8 max-w-3xl leading-relaxed">
+      Protegemos su infraestructura mediante pruebas ofensivas realistas. Identificamos vulnerabilidades antes que los atacantes.
+    </p>
+    <div class="flex gap-4">
+      <a href="#contacto" class="bg-red-600 hover:bg-red-700 px-8 py-4 rounded-xl transition transform hover:scale-105 flex items-center">
+        <i class="fas fa-shield-alt mr-3"></i>Iniciar Auditoría
+      </a>
+      <a href="#servicios" class="border border-red-600 hover:bg-red-600 px-8 py-4 rounded-xl transition transform hover:scale-105">
+        Nuestros Servicios
+      </a>
+    </div>
   </section>
 
   <!-- Servicios -->
-  <section class="py-16 px-6 bg-gray-800 text-center">
-    <h2 class="text-3xl font-semibold mb-8">¿Qué ofrecemos?</h2>
-    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-      <div class="bg-gray-700 p-6 rounded-2xl shadow-md">
-        <h3 class="text-xl font-bold mb-2">Auditorías Web & API</h3>
-        <p>Identificamos vulnerabilidades OWASP, problemas de lógica, malas configuraciones y exposición de datos sensibles en aplicaciones web y APIs.</p>
-      </div>
-      <div class="bg-gray-700 p-6 rounded-2xl shadow-md">
-        <h3 class="text-xl font-bold mb-2">Pentesting Interno / Red</h3>
-        <p>Simulamos atacantes internos con acceso inicial. Evaluamos rutas de ataque, movimiento lateral, escalación de privilegios y persistencia.</p>
-      </div>
-      <div class="bg-gray-700 p-6 rounded-2xl shadow-md">
-        <h3 class="text-xl font-bold mb-2">Red Teaming</h3>
-        <p>Realizamos simulaciones de ataques dirigidos, con objetivos específicos: evasión de defensas, acceso a activos críticos y detección de brechas.</p>
+  <section id="servicios" class="py-20 px-6 bg-gray-800">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-bold mb-16 text-center">Servicios Especializados</h2>
+      <div class="grid md:grid-cols-3 gap-10">
+        <div class="bg-gray-700 p-8 rounded-2xl transform hover:-translate-y-2 transition duration-300">
+          <div class="text-red-500 text-4xl mb-4">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Auditorías Web & API</h3>
+          <p class="text-gray-300 leading-relaxed">
+            Análisis exhaustivo de aplicaciones modernas incluyendo pruebas de inyección, gestión de sesiones, y exposición de datos sensibles.
+          </p>
+        </div>
+        
+        <div class="bg-gray-700 p-8 rounded-2xl transform hover:-translate-y-2 transition duration-300">
+          <div class="text-red-500 text-4xl mb-4">
+            <i class="fas fa-network-wired"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Pentesting de Red</h3>
+          <p class="text-gray-300 leading-relaxed">
+            Simulación avanzada de amenazas internas con enfoque en movimiento lateral, escalación de privilegios y técnicas de evasión.
+          </p>
+        </div>
+
+        <div class="bg-gray-700 p-8 rounded-2xl transform hover:-translate-y-2 transition duration-300">
+          <div class="text-red-500 text-4xl mb-4">
+            <i class="fas fa-users-gear"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Red Teaming</h3>
+          <p class="text-gray-300 leading-relaxed">
+            Ejercicios completos de adversarios simulados, desde reconocimiento hasta exfiltración de datos críticos.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Sobre nosotros -->
-  <section class="py-16 px-6 text-center">
-    <h2 class="text-3xl font-semibold mb-6">¿Quiénes somos?</h2>
-    <p class="max-w-3xl mx-auto text-lg">En TargonSec somos un equipo especializado en ciberseguridad ofensiva, con experiencia en entornos reales, participación activa en CTFs, pruebas internas, programas de bug bounty y auditorías a medida. Nuestro enfoque es práctico, técnico y orientado a resultados, con informes útiles tanto para equipos técnicos como directivos.</p>
+  <!-- Nosotros -->
+  <section id="nosotros" class="py-20 px-6 bg-gray-900">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-12">Nuestra Metodología</h2>
+      <div class="grid md:grid-cols-2 gap-12 text-left">
+        <div class="bg-gray-800 p-8 rounded-2xl">
+          <h3 class="text-2xl font-bold mb-4 text-red-500">Enfoque Táctico</h3>
+          <p class="text-gray-300">
+            Combinamos técnicas manuales avanzadas con herramientas de última generación para identificar vectores de ataque realistas.
+          </p>
+        </div>
+        <div class="bg-gray-800 p-8 rounded-2xl">
+          <h3 class="text-2xl font-bold mb-4 text-red-500">Reportes Accionables</h3>
+          <p class="text-gray-300">
+            Entregamos documentación técnica detallada con recomendaciones prioritizadas y soporte durante la remediación.
+          </p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Contacto -->
-  <section id="contacto" class="py-16 px-6 bg-gray-800 text-center">
-    <h2 class="text-3xl font-semibold mb-6">¿Hablamos?</h2>
-    <p class="mb-6">Si estás interesado en una auditoría, simulación de ataque o simplemente quieres hablar sobre seguridad ofensiva, escríbenos sin compromiso.</p>
-    <a href="mailto:targonsec@gmail.com" class="inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-xl transition">Enviar correo</a>
+  <section id="contacto" class="py-20 bg-gray-800">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-4xl font-bold mb-8">Fortalezca Su Postura de Seguridad</h2>
+      <p class="text-xl mb-12 max-w-2xl mx-auto text-gray-300">
+        Nuestros expertos están listos para ayudarle a identificar y corregir vulnerabilidades críticas en su infraestructura.
+      </p>
+      <div class="bg-gray-700 rounded-2xl p-8 shadow-xl inline-block">
+        <div class="text-left mb-6">
+          <div class="flex items-center mb-4">
+            <i class="fas fa-envelope text-red-500 mr-3"></i>
+            <span>targonsec@gmail.com</span>
+          </div>
+        </div>
+        <a href="mailto:targonsec@gmail.com" 
+           class="bg-red-600 hover:bg-red-700 px-10 py-4 rounded-xl transition transform hover:scale-105 inline-flex items-center">
+          <i class="fas fa-paper-plane mr-3"></i>Contactar Especialistas
+        </a>
+      </div>
+    </div>
   </section>
 
-  <footer class="text-center py-6 text-sm text-gray-400">
-    © 2025 - TargonSec | Servicios de Pentesting & Red Teaming
+  <footer class="bg-gray-900 py-8 border-t border-gray-800">
+    <div class="container mx-auto px-6 text-center text-gray-400">
+      <div class="flex justify-center space-x-6 mb-4">
+        <a href="#" class="hover:text-red-500"><i class="fab fa-github"></i></a>
+        <a href="#" class="hover:text-red-500"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="hover:text-red-500"><i class="fab fa-twitter"></i></a>
+      </div>
+      <p class="text-sm">
+        © <span id="currentYear"></span> TargonSec - Ethical Hacking & Cybersecurity Services
+      </p>
+    </div>
   </footer>
+
+  <script>
+    // Año actual en footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
