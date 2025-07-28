@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $service = htmlspecialchars($_POST["service"]);
     $message = htmlspecialchars($_POST["message"]);
 
-    $to = "PICHOTE@gmail.com";
+    $to = "targonsec@gmail.com";
     $subject = "Nuevo mensaje de contacto de $name";
     $body = "Nombre: $name\nCorreo: $email\nEmpresa: $company\nServicio: $service\n\nMensaje:\n$message";
     $headers = "From: $email";
