@@ -516,6 +516,138 @@
       from, to { border-color: transparent; }
       50% { border-color: #00aaff; }
     }
+    .contact-form {
+      max-width: 700px;
+      margin: 0 auto;
+      background: rgba(0, 30, 60, 0.4);
+      padding: 40px;
+      border-radius: 20px;
+      border: 2px solid rgba(0, 170, 255, 0.4);
+      backdrop-filter: blur(15px);
+      box-shadow: 0 10px 30px rgba(0, 170, 255, 0.2);
+    }
+    
+    .form-group {
+      margin-bottom: 25px;
+      position: relative;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      color: #00aaff;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+    }
+    
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 15px 20px;
+      background: rgba(0, 20, 40, 0.3);
+      border: 2px solid rgba(0, 170, 255, 0.3);
+      border-radius: 10px;
+      color: #fff;
+      font-family: 'Courier New', monospace;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: #00aaff;
+      box-shadow: 0 0 15px rgba(0, 170, 255, 0.5);
+      background: rgba(0, 30, 60, 0.5);
+    }
+    
+    .form-input::placeholder, .form-textarea::placeholder {
+      color: #88aadd;
+    }
+    
+    .form-textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .form-checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    
+    .form-checkbox input {
+      margin-top: 4px;
+      accent-color: #00aaff;
+    }
+    
+    .form-checkbox label {
+      color: #ccddff;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    
+    .form-checkbox a {
+      color: #00aaff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .form-checkbox a:hover {
+      text-decoration: underline;
+      text-shadow: 0 0 10px rgba(0, 170, 255, 0.5);
+    }
+    
+    .submit-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(45deg, #00aaff, #0088cc);
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0, 170, 255, 0.6);
+      background: linear-gradient(45deg, #0088cc, #00aaff);
+    }
+    
+    .submit-btn i {
+      margin-right: 10px;
+    }
+    
+    .form-feedback {
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 10px;
+      display: none;
+    }
+    
+    .success-message {
+      background: rgba(0, 128, 0, 0.3);
+      border: 1px solid #00ff41;
+      color: #00ff41;
+    }
+    
+    .error-message {
+      background: rgba(128, 0, 0, 0.3);
+      border: 1px solid #ff0033;
+      color: #ff3366;
+    }
   </style>
 </head>
 <body>
@@ -614,14 +746,54 @@
       <p>
         Nuestros expertos están listos para ayudarle a identificar y corregir vulnerabilidades críticas en su infraestructura.
       </p>
-      <div class="contact-card">
-        <div class="contact-info">
-          <i class="fas fa-envelope"></i>
-          <span>targonsec@gmail.com</span>
-        </div>
-        <a href="mailto:targonsec@gmail.com" class="btn-primary">
-          <i class="fas fa-paper-plane"></i>Contactar Especialistas
-        </a>
+      
+      <div class="contact-form">
+        <div id="formFeedback" class="form-feedback"></div>
+        
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name" class="form-label">Nombre completo *</label>
+            <input type="text" id="name" name="name" class="form-input" placeholder="Ingrese su nombre completo" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email" class="form-label">Correo electrónico *</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="ejemplo@empresa.com" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="company" class="form-label">Empresa/Organización</label>
+            <input type="text" id="company" name="company" class="form-input" placeholder="Nombre de su empresa">
+          </div>
+          
+          <div class="form-group">
+            <label for="service" class="form-label">Servicio de interés *</label>
+            <select id="service" name="service" class="form-select" required>
+              <option value="">Seleccione un servicio</option>
+              <option value="web-audit">Auditorías Web & API</option>
+              <option value="pentesting">Pentesting de Red</option>
+              <option value="red-teaming">Red Teaming</option>
+              <option value="other">Otro servicio</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="message" class="form-label">Mensaje *</label>
+            <textarea id="message" name="message" class="form-textarea" placeholder="Describa sus necesidades de seguridad..." minlength="50" required></textarea>
+            <small style="color: #88aadd; display: block; margin-top: 5px;">Mínimo 50 caracteres</small>
+          </div>
+          
+          <div class="form-checkbox">
+            <input type="checkbox" id="privacy" name="privacy" required>
+            <label for="privacy">
+              Acepto la <a href="#" target="_blank">Política de Privacidad</a> y autorizo el tratamiento de mis datos personales para recibir información sobre los servicios de TargonSec.
+            </label>
+          </div>
+          
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-paper-plane"></i> Enviar Mensaje
+          </button>
+        </form>
       </div>
     </div>
   </section>
@@ -640,7 +812,6 @@
   </footer>
 
   <script>
-    // Año actual en footer
     document.getElementById('currentYear').textContent = new Date().getFullYear();
     
     // Crear partículas
@@ -684,16 +855,56 @@
       }
     });
     
-    // Inicializar partículas cuando carga la página
     window.addEventListener('load', createParticles);
     
-    // Efecto de typing en el título
     window.addEventListener('load', function() {
       const title = document.querySelector('h1');
       if (title) {
         title.classList.add('typing-effect');
       }
     });
+    
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const feedbackElement = document.getElementById('formFeedback');
+      feedbackElement.style.display = 'none';
+      
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      
+      if (!name || !email || !message) {
+        showFeedback('Por favor complete todos los campos obligatorios', 'error');
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        showFeedback('Por favor ingrese un correo electrónico válido', 'error');
+        return;
+      }
+      if (message.length < 50) {
+        showFeedback('El mensaje debe tener al menos 50 caracteres', 'error');
+        return;
+      }
+      
+      showFeedback('Mensaje enviado con éxito. Nuestro equipo se pondrá en contacto pronto.', 'success');
+      
+      setTimeout(() => {
+        this.reset();
+      }, 3000);
+    });
+    
+    function showFeedback(message, type) {
+      const feedbackElement = document.getElementById('formFeedback');
+      feedbackElement.textContent = message;
+      feedbackElement.className = `form-feedback ${type}-message`;
+      feedbackElement.style.display = 'block';
+      
+      // Hacer scroll suave al mensaje
+      feedbackElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   </script>
 </body>
 </html>
