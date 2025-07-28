@@ -864,37 +864,24 @@
     });
     
     document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const feedbackElement = document.getElementById('formFeedback');
-      feedbackElement.style.display = 'none';
-      
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
       const message = document.getElementById('message').value.trim();
-      
-      if (!name || !email || !message) {
-        showFeedback('Por favor complete todos los campos obligatorios', 'error');
-        return;
-      }
-
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        showFeedback('Por favor ingrese un correo electrónico válido', 'error');
-        return;
-      }
-      if (message.length < 50) {
-        showFeedback('El mensaje debe tener al menos 50 caracteres', 'error');
-        return;
-      }
-      
-      showFeedback('Mensaje enviado con éxito. Nuestro equipo se pondrá en contacto pronto.', 'success');
-      
-      setTimeout(() => {
-        this.reset();
-      }, 3000);
-    });
     
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+      if (!name || !email || !message || message.length < 50 || !emailRegex.test(email)) {
+        e.preventDefault(); // ❗Solo evitar el envío si hay errores
+    
+        let errorMsg = 'Por favor complete todos los campos correctamente.';
+    
+        if (message.length < 50) errorMsg = 'El mensaje debe tener al menos 50 caracteres.';
+        else if (!emailRegex.test(email)) errorMsg = 'Por favor ingrese un correo electrónico válido.';
+    
+        showFeedback(errorMsg, 'error');
+      }
+    });
+        
     function showFeedback(message, type) {
       const feedbackElement = document.getElementById('formFeedback');
       feedbackElement.textContent = message;
